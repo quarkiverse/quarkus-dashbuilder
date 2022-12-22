@@ -1,0 +1,25 @@
+datasets:
+  - uuid: dataset
+    url: /data
+pages:
+  - components:
+      - settings:
+          type: LINECHART
+          general:
+            title: Data from generated Dataset
+          axis:
+            x:
+              labels_show: false
+          chart:
+            resizable: true
+            height: 450
+            grid:
+              x: false
+              y: false
+          refresh:
+            interval: 1
+          lookup:
+            uuid: dataset            
+            sort:
+              - column: Column 0
+                sortOrder: ASCENDING
