@@ -203,7 +203,7 @@ public class DashbuilderProcessor {
     }
 
     String getDashboardName(Path dashboard) {
-        var fileName = dashboard.toFile().getName();
+        var fileName = dashboard.getFileName().toString();
         var dotIndex = fileName.indexOf(".");
         return dotIndex == -1 ? fileName : fileName.substring(0, dotIndex);
     }

@@ -23,9 +23,6 @@ For instance, with Maven, add the following dependency to your POM file:
 [[extension-configuration-reference]]
 == Extension Configuration Reference
 
-
-
-
 [cols="3,3,3,3"] 
 |=== 
 | Property | Type |Default | Description
