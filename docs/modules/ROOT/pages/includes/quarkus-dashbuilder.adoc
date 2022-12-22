@@ -1,0 +1,44 @@
+
+:summaryTableId: quarkus-dashbuilder
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
+|===
+
+h|[[quarkus-dashbuilder_configuration]]link:#quarkus-dashbuilder_configuration[Configuration property]
+
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.path]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.path[quarkus.dashbuilder.path]`
+
+[.description]
+--
+The web path where Dashbuilder dashboards will be available. By default, this value will be resolved as a path relative to `$++{++quarkus.http.non-application-root-path++}++`.
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_DASHBUILDER_PATH+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_DASHBUILDER_PATH+++`
+endif::add-copy-button-to-env-var[]
+--|string 
+|`/dashboards`
+
+
+a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.dashboards]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.dashboards[quarkus.dashbuilder.dashboards]`
+
+[.description]
+--
+Comma separated list of dashboards to be rendered by Dashbuilder. If not used then Dashbuilder scan all `++*++.dash.(yaml++\|++yml++\|++json)` files
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_DASHBUILDER_DASHBOARDS+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_DASHBUILDER_DASHBOARDS+++`
+endif::add-copy-button-to-env-var[]
+--|list of string 
+|
+
+|===

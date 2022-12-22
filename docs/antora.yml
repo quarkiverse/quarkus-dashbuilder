@@ -1,0 +1,5 @@
+name: quarkus-dashbuilder
+title: Quarkus Dashbuilder
+version: dev
+nav:
+  - modules/ROOT/nav.adoc

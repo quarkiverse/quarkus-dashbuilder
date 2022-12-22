@@ -1,0 +1,45 @@
+= Quarkus Dashbuilder
+
+include::./includes/attributes.adoc[]
+
+
+https://www.dashbuilder.org/[Dashbuilder] is a tool for running client side dashboards defined in declarative languages, such as YAML. This extension aims to bring Dashbuilder bundle to your application.
+
+== Installation
+
+If you want to use this extension, you need to add the `io.quarkiverse.dashbuilder:quarkus-dashbuilder` extension first to your build file.
+
+For instance, with Maven, add the following dependency to your POM file:
+
+[source,xml,subs=attributes+]
+----
+<dependency>
+    <groupId>io.quarkiverse.dashbuilder</groupId>
+    <artifactId>quarkus-dashbuilder</artifactId>
+    <version>{project-version}</version>
+</dependency>
+----
+
+[[extension-configuration-reference]]
+== Extension Configuration Reference
+
+
+
+
+[cols="3,3,3"] 
+|=== 
+| Property | Type |Default | Description
+
+|`quarkus.dashbuilder.path`
+|string
+|`dashboards`
+|Web context for dashbuilder
+
+|`quarkus.dashbuilder.dashboards`
+|list of strings
+|
+|comma separated list of paths to dashboards files. If empty dashbuilder scans for `*.dash.(yaml|yml|json)` files.
+|=== 
+
+
+include::includes/quarkus-dashbuilder.adoc[leveloffset=+1, opts=optional]
