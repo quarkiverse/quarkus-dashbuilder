@@ -36,7 +36,7 @@
     <maven.compiler.release>11</maven.compiler.release>
     
     <!-- Dashbuilder WebJar -->
-    <dashbuilder.package>@dashbuilder-js/dashbuilder-client</dashbuilder.package>
+    <dashbuilder.package>@kie-tools/dashbuilder-client</dashbuilder.package>
     <version.dashbuilder.npm>0.26.0</version.dashbuilder.npm>
     
     <quarkus.version>3.0.0.Alpha2</quarkus.version>    

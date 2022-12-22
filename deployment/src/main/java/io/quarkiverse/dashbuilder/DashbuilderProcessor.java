@@ -55,7 +55,7 @@ public class DashbuilderProcessor {
 
     private static final String SETUP_FILE = "setup.js";
 
-    private static final String DASHBUILDER_STATIC_PATH = "@dashbuilder-js/dashbuilder-client/dist/";
+    private static final String DASHBUILDER_STATIC_PATH = "@kie-tools/dashbuilder-client/dist/";
 
     private static final String DASHBOARDS_WEB_CONTEXT = "__dashboard";
 
