@@ -63,7 +63,7 @@
               <goal>extension-descriptor</goal>
             </goals>
             <configuration>
-              <deployment>${project.groupId}:${project.artifactId}-deployment:999-SNAPSHOT</deployment>
+		    <deployment>${project.groupId}:${project.artifactId}-deployment:${project.version}</deployment>
             </configuration>
           </execution>
         </executions>
