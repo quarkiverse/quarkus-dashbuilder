@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.quarkiverse.dashbuilder;
+package io.quarkiverse.dashbuilder.deployment;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import io.quarkus.runtime.annotations.ConfigItem;
@@ -38,5 +39,17 @@ public class DashbuilderConfig {
      */
     @ConfigItem(defaultValue = "")
     public Optional<List<String>> dashboards;
+
+    /**
+     * If true samples will also be included in the final JAR
+     */
+    @ConfigItem(defaultValue = "false")
+    public boolean includeSamples;
+
+    /**
+     * Dashboards properties
+     */
+    @ConfigItem()
+    public Map<String, Map<String, String>> properties;
 
 }
