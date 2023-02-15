@@ -4,7 +4,7 @@ metadata:
     - "dashbuilder"
     - "dashboards"
     - "dataviz"
-  guide: "https://quarkus.io/guides/kogito"
+  guide: "https://quarkiverse.github.io/quarkiverse-docs/quarkus-dashbuilder/dev/index.html"
   categories:
     - "miscellaneous"
   status: "preview"
