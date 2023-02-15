@@ -23,7 +23,7 @@
   </parent>
   <artifactId>quarkus-dashbuilder</artifactId>
   <name>Dashbuilder Quarkus Extension - Runtime</name>
-  <description>Dashbuilder extension for embeeding dashboards in a Quarkus application</description>
+  <description>Dashbuilder extension for embedding dashboards in a Quarkus application</description>
 
   <properties>
     <path.to.webapp.app>../../dashbuilder-viewer-deployment-webapp/</path.to.webapp.app>
