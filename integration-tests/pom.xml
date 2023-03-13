@@ -4,7 +4,7 @@
   <parent>
     <groupId>io.quarkiverse.dashbuilder</groupId>
     <artifactId>quarkus-dashbuilder-parent</artifactId>
-    <version>999-SNAPSHOT</version>
+    <version>0.27.0</version>
   </parent>
   <artifactId>quarkus-dashbuilder-integration-tests</artifactId>
   <name>Quarkus Dashbuilder - Integration Tests</name>
