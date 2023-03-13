@@ -1,0 +1,246 @@
+properties:
+  # use -1 to cancel auto refresh
+  refreshInterval: 10
+  # Change to your quarkus installation URL e.g. http://localhost:8080/q/metrics
+  metricsUrl: http://localhost:8080/q/metrics
+global:
+  mode: dark  
+  settings:
+    refresh:
+      interval: ${refreshInterval}
+    chart:
+      resizable: true
+      height: 350
+      grid:
+        x: false
+    columns:
+      - id: Total
+        pattern: "#"
+      - id: Value
+        pattern: "#"
+    html:
+      html: >-
+        <div id="${this}" class="card-pf card-pf-aggregate-status" style="background-color: ${bgColor}; width: 90%; height: 80px;margin: 10px; border-radius: 10px">
+          <h2 style="font-weight: 600; font-size: large" id="${this}Value">${value} <span id="${this}Suffix" class=""></span></h2>
+          <p style="font-weight: 400" id="${this}Title"><em id="${this}Icon" class=""></em> ${title}</p>
+        </div>
+    lookup:
+      uuid: all_metrics
+datasets:
+  - uuid: all_metrics
+    url: ${metricsUrl}
+    cacheEnabled: true
+    refreshTime: 5second
+    columns:
+      - id: Metric
+        type: LABEL
+      - id: Labels
+        type: LABEL
+      - id: Value
+        type: NUMBER
+pages:
+  - rows:
+      - columns:
+          - components:
+              - html: Quarkus Metrics <hr />
+                properties:
+                  font-size: x-large
+                  font-weight: bold
+                  vertical-align: center
+                  padding: 10px
+                  margin-bottom: 10px
+      - columns:
+          - span: 3
+            components:
+              - settings:
+                  type: METRIC
+                  general:
+                    title: "CPU Usage"
+                  html:
+                    javascript: >-
+                      document.getElementById(${this}.id + "Icon").className = "pficon pficon-cpu";
+                      document.getElementById(${this}.id + "Suffix").innerHTML = "%";
+                  columns:
+                    - id: CPU
+                      expression: value * 100
+                      pattern: "#"
+                  lookup:
+                    filter:
+                      - column: Metric
+                        function: EQUALS_TO
+                        args:
+                          - "system_cpu_usage"
+                    group:
+                      - groupFunctions:
+                          - source: Value
+                            function: MAX
+                            column: CPU
+          - span: 3
+            components:
+              - settings:
+                  type: METRIC
+                  general:
+                    title: Open Files
+                  html:
+                    javascript: >-
+                      document.getElementById(${this}.id + "Icon").className = "pficon pficon-folder-open";
+                  lookup:
+                    filter:
+                      - column: Metric
+                        function: EQUALS_TO
+                        args:
+                          - "process_files_open_files"
+                    group:
+                      - groupFunctions:
+                          - source: Value
+                            function: MAX
+                            column: Total
+          - span: 3
+            components:
+              - settings:
+                  type: METRIC
+                  general:
+                    visible: true
+                    title: "Uptime"
+                  html:
+                    javascript: >-
+                      document.getElementById(${this}.id + "Icon").className = "fa fa-clock-o";
+                      document.getElementById(${this}.id + "Suffix").innerHTML = "min";
+                  columns:
+                    - id: UPTIME
+                      pattern: "#"
+                      expression: value / 60
+                  lookup:
+                    filter:
+                      - column: Metric
+                        function: EQUALS_TO
+                        args:
+                          - "process_uptime_seconds"
+                    group:
+                      - functions:
+                          - source: Value
+                            function: MAX
+                            column: UPTIME
+          - span: 3
+            components:
+              - settings:
+                  type: METRIC
+                  general:
+                    title: "Peak Threads"
+                  html:
+                    javascript: document.getElementById(${this}.id + "Icon").className = "fa fa-th";
+
+                  lookup:
+                    filter:
+                      - column: Metric
+                        function: EQUALS_TO
+                        args:
+                          - "jvm_threads_peak_threads"
+                    group:
+                      - functions:
+                          - source: Value
+      - properties:
+          margin-top: 50px
+        columns:
+          - span: 6
+            components:
+              - settings:
+                  type: BARCHART
+                  extraConfiguration: >-
+                    {
+                      "color" : ["#5ec962"]
+                    }
+                  general:
+                    title: JVM Memory Used Bytes (heap)
+                  columns:
+                    - id: Labels
+                      expression: value.replaceAll("area=\"heap\",id=\"", "").replace("\",", "");
+                  lookup:
+                    filter:
+                      - column: Metric
+                        function: EQUALS_TO
+                        args:
+                          - "jvm_memory_used_bytes"
+                      - column: labels
+                        function: LIKE_TO
+                        args:
+                          - 'area="heap"%'
+                    sort:
+                      - column: Total
+                        sortOrder: DESCENDING
+                    group:
+                      - columnGroup:
+                          source: Labels
+                        functions:
+                          - source: Labels
+                          - source: Value
+                            function: MAX
+                            column: Total
+          - span: 6
+            components:
+              - settings:
+                  type: BARCHART
+                  extraConfiguration: >-
+                    {
+                      "color" : ["#5ec962"]
+                    }
+                  general:
+                    title: JVM Memory Used Bytes (nonheap)
+                  columns:
+                    - id: Labels
+                      expression: value.replaceAll("area=\"nonheap\",id=\"", "").replace("\",", "");
+                  lookup:
+                    filter:
+                      - column: Metric
+                        function: EQUALS_TO
+                        args:
+                          - "jvm_memory_used_bytes"
+                      - column: labels
+                        function: LIKE_TO
+                        args:
+                          - 'area="nonheap"%'
+                    sort:
+                      - column: Total
+                        sortOrder: DESCENDING
+                    group:
+                      - columnGroup:
+                          source: Labels
+                        functions:
+                          - source: Labels
+                          - source: Value
+                            function: MAX
+                            column: Total
+
+      - properties:
+          margin-top: 20px
+        columns:
+          - components:
+              - settings:
+                  type: BARCHART
+                  extraConfiguration: >-
+                    {
+                      "color" : ["#4695EB"]
+                    }
+                  general:
+                    title: Threads
+                  columns:
+                    - id: Labels
+                      expression:
+                        value.replaceAll("state=\"", "").replace("\",", "");
+                  lookup:
+                    filter:
+                      - column: Metric
+                        function: EQUALS_TO
+                        args:
+                          - "jvm_threads_states_threads"
+                    sort:
+                      - column: Total
+                        sortOrder: DESCENDING
+                    group:
+                      - columnGroup:
+                          source: Labels
+                        functions:
+                          - source: Labels
+                          - source: Value
+                            function: MAX
+                            column: Total

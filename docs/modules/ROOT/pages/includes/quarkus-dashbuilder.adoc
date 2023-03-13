@@ -41,4 +41,36 @@ endif::add-copy-button-to-env-var[]
 --|list of string 
 |
 
+
+a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.include-samples]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.include-samples[quarkus.dashbuilder.include-samples]`
+
+[.description]
+--
+If true samples will also be included in the final JAR
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_DASHBUILDER_INCLUDE_SAMPLES+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_DASHBUILDER_INCLUDE_SAMPLES+++`
+endif::add-copy-button-to-env-var[]
+--|boolean 
+|`false`
+
+
+a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.properties-properties]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.properties-properties[quarkus.dashbuilder.properties]`
+
+[.description]
+--
+Dashboards properties
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_DASHBUILDER_PROPERTIES+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_DASHBUILDER_PROPERTIES+++`
+endif::add-copy-button-to-env-var[]
+--|`Map<String,Map<String,String>>` 
+|
+
 |===

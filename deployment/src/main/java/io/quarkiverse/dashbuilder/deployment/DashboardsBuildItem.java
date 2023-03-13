@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.quarkiverse.dashbuilder;
+package io.quarkiverse.dashbuilder.deployment;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -26,19 +26,32 @@ public final class DashboardsBuildItem extends SimpleBuildItem {
 
     private Map<String, String> dashboards;
 
+    private Map<String, String> samples;
+
+    private String appDir;
+
     DashboardsBuildItem() {
         dashboards = new HashMap<>();
+        samples = new HashMap<>();
     }
 
-    public void register(String name, String content) {
+    public void setApplicationDirectory(String appDir) {
+        this.appDir = appDir;
+    }
+
+    public String getAppDir() {
+        return appDir;
+    }
+
+    public void registerDashboard(String name, String content) {
         dashboards.put(name, content);
     }
 
-    public String get(String name) {
-        return dashboards.get(name);
+    public void registerSample(String id, String content) {
+        samples.put(id, content);
     }
 
-    public Set<String> list() {
+    public Set<String> listDashboards() {
         return dashboards.keySet();
     }
 
@@ -46,4 +59,7 @@ public final class DashboardsBuildItem extends SimpleBuildItem {
         return Collections.unmodifiableMap(dashboards);
     }
 
+    public Map<String, String> getSamples() {
+        return Collections.unmodifiableMap(samples);
+    }
 }

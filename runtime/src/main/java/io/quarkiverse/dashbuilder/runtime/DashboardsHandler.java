@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.quarkiverse.dashbuilder;
+package io.quarkiverse.dashbuilder.runtime;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

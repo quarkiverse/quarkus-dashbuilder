@@ -1,6 +1,5 @@
-
 /*
- * Copyright 2022 Red Hat, Inc. and/or its affiliates.
+ * Copyright 2023 Red Hat, Inc. and/or its affiliates.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,23 +24,26 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import io.quarkus.test.QuarkusUnitTest;
 import io.restassured.RestAssured;
 
-public class DashboardsListTest {
+public class DashboardsPropertiesTest {
 
     @RegisterExtension
     static final QuarkusUnitTest config = new QuarkusUnitTest()
             .withApplicationRoot((jar) -> jar
                     .addAsResource(
                             new StringAsset(
-                                    "quarkus.dashbuilder.dashboards=db2.dash.yaml"),
+                                    "quarkus.dashbuilder.dashboards=db.dash.yaml\n" +
+                                            "other.prop=replaced\n" +
+                                            "quarkus.dashbuilder.properties.db.prop=replaced\n"),
                             "application.properties")
-                    .addAsResource(new StringAsset("pages:\n - components:"), "db1.dash.yaml")
-                    .addAsResource(new StringAsset("pages:\n - components:"), "db2.dash.yaml"));
+                    .addAsResource(
+                            new StringAsset("properties:\n    prop: value\n    other.prop: value\npages:\n - components:"),
+                            "db.dash.yaml"));
 
     @Test
-    public void shouldLoadOnlyMappedDashboards() {
-        RestAssured.when().get("/dashboards/__dashboard/db2").then().statusCode(200)
-                .body(containsString("pages"));
-        RestAssured.when().get("/dashboards/__dashboard/db1").then().statusCode(404);
+    public void shouldReplacePropertyInDashboard() {
+        RestAssured.when().get("/dashboards/__dashboard/db").then().statusCode(200)
+                .body(containsString("prop: replaced"))
+                .body(containsString("other.prop: replaced"));
     }
 
 }

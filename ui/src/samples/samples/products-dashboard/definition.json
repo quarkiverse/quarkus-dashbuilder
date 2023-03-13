@@ -1,0 +1,33 @@
+{
+  "type": "sample",
+  "category": "dashbuilder",
+  "status": "ok",
+  "title": "Products Dashboard",
+  "description": "This is a Dashbuilder sample where you can see quantity comparison between products in bar chart; you can also add different sections in a product and visualize the result in dark or light mode.",
+  "cover": "./products-dashboard.svg",
+  "tags": [
+    "Bar Chart",
+    "bar chart",
+    "quantity comparison",
+    "quantity comparison dashbuilder",
+    "products dashbuilder"
+  ],
+  "dependencies": [],
+  "related_to": [],
+  "resources": [],
+  "authors": [
+    {
+      "name": "Kumar Aditya Raj",
+      "email": "kraj@redhat.com",
+      "image": "https://lh3.googleusercontent.com/ogwAAEL6sggXJ-YBUHXaHmPzJe4kK29bWhOqFb36E5tNoc7=s32-c-mo",
+      "github": "https://github.com/kumaradityaraj",
+      "bio": "A geek who has started contributing to open source; is a final year grad student and loves travelling.",
+      "social": [
+        {
+          "network": "twitter",
+          "id": "@aditya_twts_"
+        }
+      ]
+    }
+  ]
+}

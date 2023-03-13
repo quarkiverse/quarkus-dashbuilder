@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.quarkiverse.dashbuilder;
+package io.quarkiverse.dashbuilder.runtime;
 
 import java.util.List;
 import java.util.Map;
@@ -41,5 +41,9 @@ public class DashbuilderRecorder {
     public Handler<RoutingContext> dashboardsHandler(String dashboardsWebContext, Map<String, String> dashboards) {
         return new DashboardsHandler(dashboardsWebContext, dashboards);
 
+    }
+
+    public Handler<RoutingContext> samplesHandler(String projectDir, Map<String, String> samples) {
+        return new SampleEditHandler(projectDir, samples);
     }
 }

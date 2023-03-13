@@ -1,0 +1,7 @@
+{
+  "quarkus-dashbuilder": [
+    { "id": "dashbuilder-kitchensink" },
+    { "id": "products-dashboard" }
+  ],
+  "quarkus-micrometer": [{ "id": "metrics" }]
+}
