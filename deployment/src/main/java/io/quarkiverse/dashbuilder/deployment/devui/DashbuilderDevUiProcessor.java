@@ -22,7 +22,7 @@ public class DashbuilderDevUiProcessor {
         cardPageBuildItem.addPage(Page.externalPageBuilder("Samples")
                 .icon("font-awesome-solid:chart-bar")
                 .internal()
-                .url(dashbuilderConfig.path + "?samples")
+                .url(dashbuilderConfig.path + "/?samples")
                 .title("Samples"));
 
         return cardPageBuildItem;
