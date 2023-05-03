@@ -24,7 +24,7 @@
   <artifactId>quarkus-dashbuilder-parent</artifactId>
   <groupId>io.quarkiverse.dashbuilder</groupId>
   <name>Quarkus - Dashbuilder - Parent</name>
-  <version>0.27.3</version>
+  <version>999-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -99,8 +99,4 @@
       </modules>
     </profile>
   </profiles>
-
-  <scm>
-    <tag>0.27.3</tag>
-  </scm>
 </project>
