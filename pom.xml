@@ -65,7 +65,11 @@
     <module>runtime</module>
     <module>docs</module>
   </modules>
-
+  <scm>
+    <connection>scm:git:git@github.com:quarkiverse/quarkus-dashbuilder.git</connection>
+    <developerConnection>scm:git:git@github.com:quarkiverse/quarkus-dashbuilder.git</developerConnection>
+    <url>https://github.com/quarkiverse/quarkus-dashbuilder</url>
+  </scm>
   <build>
     <pluginManagement>
       <plugins>
