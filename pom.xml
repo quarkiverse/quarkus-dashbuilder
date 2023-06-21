@@ -29,12 +29,12 @@
 
   <properties>
     <java.module.name />
-    
+
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <maven.compiler.release>11</maven.compiler.release>
-    
-    <!-- Dashbuilder WebJar -->    
+
+    <!-- Dashbuilder WebJar -->
     <dashbuilder.package>@kie-tools/dashbuilder-client</dashbuilder.package>
     <version.dashbuilder.npm>0.30.0</version.dashbuilder.npm>
     
@@ -43,6 +43,10 @@
 
     <version.org.orienteer.jnpm>1.5</version.org.orienteer.jnpm>
     <rest-assured.version>5.3.1</rest-assured.version>
+    <version.maven.scm>2.0.0</version.maven.scm>
+
+    <samples.git.url>https://github.com/kiegroup/kie-samples.git</samples.git.url>
+    <samples.src.dir>samples</samples.src.dir>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

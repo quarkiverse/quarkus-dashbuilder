@@ -1,7 +1,18 @@
 {
   "quarkus-dashbuilder": [
-    { "id": "dashbuilder-kitchensink" },
-    { "id": "products-dashboard" }
+    {
+      "id": "dashbuilder-kitchensink"
+    },
+    {
+      "id": "products-dashboard"
+    }
   ],
-  "quarkus-micrometer": [{ "id": "metrics" }]
+  "quarkus-micrometer": [
+    {
+      "id": "metrics"
+    },
+    {
+      "id": "metrics-realtime"
+    }
+  ]
 }
