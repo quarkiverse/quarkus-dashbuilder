@@ -19,7 +19,7 @@
   <parent>
     <groupId>io.quarkiverse.dashbuilder</groupId>
     <artifactId>quarkus-dashbuilder-parent</artifactId>
-    <version>0.29.0</version>
+    <version>999-SNAPSHOT</version>
   </parent>
   <artifactId>quarkus-dashbuilder-ui</artifactId>
   <name>Dashbuilder Quarkus Extension - UI</name>
