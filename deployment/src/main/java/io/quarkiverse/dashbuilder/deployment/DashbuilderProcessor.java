@@ -154,8 +154,10 @@ public class DashbuilderProcessor {
 
         var dashboards = dashboardsBuildItem.listDashboards();
         var buildSetupJs = buildSetupJs(dashboards, dashbuilderConfig).getBytes();
-        var appPath = curateOutcomeBuildItem.getApplicationModel().getApplicationModule().getModuleDir().toString();
-        dashboardsBuildItem.setApplicationDirectory(appPath);
+        if (isDev()) {
+            var appPath = curateOutcomeBuildItem.getApplicationModel().getApplicationModule().getModuleDir().toString();
+            dashboardsBuildItem.setApplicationDirectory(appPath);
+        }
         webJarBuildProducer.produce(
                 WebJarBuildItem.builder().artifactKey(DASHBUILDER_UI_WEBJAR_ARTIFACT_KEY)
                         .root(DASHBUILDER_STATIC_PATH)
