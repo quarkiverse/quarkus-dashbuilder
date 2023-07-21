@@ -24,9 +24,45 @@
   <artifactId>quarkus-dashbuilder-ui</artifactId>
   <name>Dashbuilder Quarkus Extension - UI</name>
   <description>Dashbuilder extension Web Bundle</description>
+  <properties>
+    <dashbuilder.unzip.dir>${project.build.directory}/dashbuilder</dashbuilder.unzip.dir>
+    <dashbuilder.content.dir>${dashbuilder.unzip.dir}/${dashbuilder.package}/dist/</dashbuilder.content.dir>
+  </properties>
 
   <build>
     <plugins>
+      <plugin>
+        <artifactId>maven-scm-plugin</artifactId>
+        <version>2.0.0</version>
+        <configuration>
+          <connectionType>developerConnection</connectionType>
+          <providerImplementations>
+            <git>jgit</git>
+          </providerImplementations>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-jgit</artifactId>
+            <version>2.0.0</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>clone-samples</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>checkout</goal>
+            </goals>
+            <configuration>
+              <developerConnectionUrl>scm:git:${samples.git.url}</developerConnectionUrl>
+              <scmVersion>${version.dashbuilder.npm}</scmVersion>
+              <scmVersionType>tag</scmVersionType>
+              <checkoutDirectory>${project.build.directory}/kie-samples</checkoutDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.orienteer.jnpm</groupId>
         <artifactId>jnpm-maven-plugin</artifactId>
@@ -37,7 +73,7 @@
               <goal>install</goal>
             </goals>
             <configuration>
-              <outputDirectory>${project.build.directory}/dashbuilder</outputDirectory>
+              <outputDirectory>${dashbuilder.unzip.dir}</outputDirectory>
               <strategy>SIMPLE</strategy>
               <packages>
                 <package>${dashbuilder.package}@~${version.dashbuilder.npm}</package>
@@ -51,17 +87,54 @@
         <version>3.3.1</version>
         <executions>
           <execution>
-            <id>copy-resources</id>
+            <id>copy-dashbuilder</id>
             <phase>validate</phase>
             <goals>
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/dashbuilder/${dashbuilder.package}/dist/</outputDirectory>
+              <outputDirectory>${dashbuilder.content.dir}</outputDirectory>
               <resources>
                 <resource>
-                  <directory>src/samples</directory>
+                  <directory>src/${samples.src.dir}</directory>
                   <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>copy-samples</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${dashbuilder.content.dir}/samples/</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${project.build.directory}/kie-samples/samples/</directory>
+                  <filtering>true</filtering>
+                  <includes>
+                    <!-- Dashbuilder Extension Samples -->
+                    <include>dashbuilder-kitchensink/**/*.svg</include>
+                    <include>dashbuilder-kitchensink/**/*.dash.yaml</include>
+                    <include>products-dashboard/**/*.svg</include>
+                    <include>products-dashboard/**/*.dash.yaml</include>
+                    <!-- Micrometer (commented while issue with properties are resolved) 
+                    <include>jvm-monitoring-micrometer/**/*.svg</include>
+                    <include>jvm-monitoring-micrometer/**/*.dash.yaml</include>
+                    <include>quarkus-micrometer-monitoring/**/*.svg</include>
+                    <include>quarkus-micrometer-monitoring/**/*.dash.yaml</include>-->
+                    <!-- Serverless Workflow 
+                    <include>serverless-workflow-report/**/*.svg</include>
+                    <include>serverless-workflow-report/**/*.dash.yaml</include>-->
+                  </includes>
                 </resource>
               </resources>
             </configuration>
