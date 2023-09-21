@@ -12,6 +12,7 @@ h|Default
 
 a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.path]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.path[quarkus.dashbuilder.path]`
 
+
 [.description]
 --
 The web path where Dashbuilder dashboards will be available. By default, this value will be resolved as a path relative to `$++{++quarkus.http.non-application-root-path++}++`.
@@ -27,6 +28,7 @@ endif::add-copy-button-to-env-var[]
 
 
 a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.dashboards]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.dashboards[quarkus.dashbuilder.dashboards]`
+
 
 [.description]
 --
@@ -44,6 +46,7 @@ endif::add-copy-button-to-env-var[]
 
 a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.include-samples]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.include-samples[quarkus.dashbuilder.include-samples]`
 
+
 [.description]
 --
 If true samples will also be included in the final JAR
@@ -59,6 +62,7 @@ endif::add-copy-button-to-env-var[]
 
 
 a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.properties-properties]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.properties-properties[quarkus.dashbuilder.properties]`
+
 
 [.description]
 --
