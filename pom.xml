@@ -36,7 +36,7 @@
 
     <!-- Dashbuilder WebJar -->
     <dashbuilder.package>@kie-tools/dashbuilder-client</dashbuilder.package>
-    <version.dashbuilder.npm>0.30.0</version.dashbuilder.npm>
+    <version.dashbuilder.npm>0.31.0</version.dashbuilder.npm>
     
     <quarkus.version>3.4.0</quarkus.version>    
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
