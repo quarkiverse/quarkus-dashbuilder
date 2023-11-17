@@ -38,7 +38,7 @@
     <dashbuilder.package>@kie-tools/dashbuilder-client</dashbuilder.package>
     <version.dashbuilder.npm>0.31.0</version.dashbuilder.npm>
     
-    <quarkus.version>3.4.1</quarkus.version>    
+    <quarkus.version>3.5.2</quarkus.version>    
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
 
     <version.org.orienteer.jnpm>1.5</version.org.orienteer.jnpm>
