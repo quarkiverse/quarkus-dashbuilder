@@ -30,9 +30,9 @@
   <properties>
     <java.module.name />
 
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <maven.compiler.release>11</maven.compiler.release>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.release>17</maven.compiler.release>
 
     <!-- Dashbuilder WebJar -->
     <dashbuilder.package>@kie-tools/dashbuilder-client</dashbuilder.package>
@@ -44,6 +44,7 @@
     <version.org.orienteer.jnpm>1.5</version.org.orienteer.jnpm>
     <rest-assured.version>5.4.0</rest-assured.version>
     <version.maven.scm>2.0.0</version.maven.scm>
+    <version.maven.resources.plugin>3.3.1</version.maven.resources.plugin>
 
     <samples.git.url>https://github.com/kiegroup/kie-samples.git</samples.git.url>
     <samples.src.dir>samples</samples.src.dir>
@@ -91,6 +92,10 @@
               <arg>-parameters</arg>
             </compilerArgs>
           </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+	  <version>${version.maven.resources.plugin}</version>
         </plugin>
       </plugins>
     </pluginManagement>

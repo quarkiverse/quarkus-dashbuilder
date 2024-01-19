@@ -8,7 +8,7 @@ properties:
   metricsUrl: http://${quarkus.http.host}:${quarkus.http.port}/q/${quarkus.micrometer.export.prometheus.path}
 global:
   mode: dark  
-  settings:
+  displayer:
     refresh:
       interval: ${refreshInterval}
     chart:
@@ -27,8 +27,6 @@ global:
           <h2 style="font-weight: 600; font-size: large" id="${this}Value">${value} <span id="${this}Suffix" class=""></span></h2>
           <p style="font-weight: 400" id="${this}Title"><em id="${this}Icon" class=""></em> ${title}</p>
         </div>
-    lookup:
-      uuid: all_metrics
 datasets:
   - uuid: all_metrics
     url: ${metricsUrl}
@@ -55,7 +53,7 @@ pages:
       - columns:
           - span: 3
             components:
-              - settings:
+              - displayer:
                   type: METRIC
                   general:
                     title: "CPU Usage"
@@ -81,7 +79,7 @@ pages:
                             column: CPU
           - span: 3
             components:
-              - settings:
+              - displayer:
                   type: METRIC
                   general:
                     title: Open Files
@@ -102,7 +100,7 @@ pages:
                             column: Total
           - span: 3
             components:
-              - settings:
+              - displayer:
                   type: METRIC
                   general:
                     visible: true
@@ -129,7 +127,7 @@ pages:
                             column: UPTIME
           - span: 3
             components:
-              - settings:
+              - displayer:
                   type: METRIC
                   general:
                     title: "Peak Threads"
@@ -151,7 +149,7 @@ pages:
         columns:
           - span: 6
             components:
-              - settings:
+              - displayer:
                   type: BARCHART
                   extraConfiguration: >-
                     {
@@ -186,7 +184,7 @@ pages:
                             column: Total
           - span: 6
             components:
-              - settings:
+              - displayer:
                   type: BARCHART
                   extraConfiguration: >-
                     {
@@ -224,7 +222,7 @@ pages:
           margin-top: 20px
         columns:
           - components:
-              - settings:
+              - displayer:
                   type: BARCHART
                   extraConfiguration: >-
                     {
