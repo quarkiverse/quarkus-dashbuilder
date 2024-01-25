@@ -20,7 +20,7 @@
     <parent>
         <groupId>io.quarkiverse.dashbuilder</groupId>
         <artifactId>quarkus-dashbuilder-parent</artifactId>
-        <version>0.32.0</version>
+        <version>999-SNAPSHOT</version>
     </parent>
 
     <artifactId>quarkus-dashbuilder-deployment</artifactId>
