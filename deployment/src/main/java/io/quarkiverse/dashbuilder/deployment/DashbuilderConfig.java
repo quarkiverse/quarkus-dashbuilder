@@ -19,37 +19,38 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
 
 @ConfigRoot
-public class DashbuilderConfig {
+@ConfigMapping(prefix = "quarkus.dashbuilder")
+public interface DashbuilderConfig {
 
     /**
      * The web path where Dashbuilder dashboards will be available.
      * By default, this value will be resolved as a path relative to
      * `${quarkus.http.non-application-root-path}`.
      */
-    @ConfigItem(defaultValue = "/dashboards")
-    public String path;
+    @WithDefault("/dashboards")
+    public String path();
 
     /**
      * Comma separated list of dashboards to be rendered by Dashbuilder.
      * If not used then Dashbuilder scan all `*.dash.(yaml|yml|json)` files
      */
-    @ConfigItem(defaultValue = "")
-    public Optional<List<String>> dashboards;
+    @WithDefault("")
+    public Optional<List<String>> dashboards();
 
     /**
      * If true samples will also be included in the final JAR
      */
-    @ConfigItem(defaultValue = "false")
-    public boolean includeSamples;
+    @WithDefault("false")
+    public boolean includeSamples();
 
     /**
      * Dashboards properties
      */
-    @ConfigItem()
-    public Map<String, Map<String, String>> properties;
+    public Map<String, Map<String, String>> properties();
 
 }

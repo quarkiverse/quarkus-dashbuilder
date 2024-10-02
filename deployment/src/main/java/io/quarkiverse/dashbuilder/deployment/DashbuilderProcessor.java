@@ -93,11 +93,11 @@ public class DashbuilderProcessor {
 
         var dashboardsBuildItem = new DashboardsBuildItem();
         var watchList = new ArrayList<String>();
-        var dashboards = dashbuilderConfig.dashboards;
+        var dashboards = dashbuilderConfig.dashboards();
 
         BiConsumer<String, String> register = (name, content) -> {
-            if (dashbuilderConfig.properties.containsKey(name)) {
-                var dashboardProperties = dashbuilderConfig.properties.get(name);
+            if (dashbuilderConfig.properties().containsKey(name)) {
+                var dashboardProperties = dashbuilderConfig.properties().get(name);
                 var newContent = replaceProperties(dashboardProperties, name, content);
                 dashboardsBuildItem.registerDashboard(name, newContent);
             } else {
@@ -211,7 +211,7 @@ public class DashbuilderProcessor {
             return;
         }
 
-        var dashbuilderWebAppPath = nonApplicationRootPathBuildItem.resolvePath(dashbuilderConfig.path);
+        var dashbuilderWebAppPath = nonApplicationRootPathBuildItem.resolvePath(dashbuilderConfig.path());
 
         var webAppHandler = dashbuilderRecorder.dashbuilderWebAppHandler(result.getFinalDestination(),
                 dashbuilderWebAppPath,
@@ -220,17 +220,17 @@ public class DashbuilderProcessor {
         var dashboardsHandler = dashbuilderRecorder.dashboardsHandler(DASHBOARDS_WEB_CONTEXT,
                 dashboardsBuildItem.getDashboards());
 
-        var dashboardsContext = dashbuilderConfig.path + "/" + DASHBOARDS_WEB_CONTEXT;
+        var dashboardsContext = dashbuilderConfig.path() + "/" + DASHBOARDS_WEB_CONTEXT;
 
         routes.produce(nonApplicationRootPathBuildItem.routeBuilder()
-                .route(dashbuilderConfig.path)
+                .route(dashbuilderConfig.path())
                 .displayOnNotFoundPage("Dashbuilder Web App")
                 .routeConfigKey("quarkus.dashbuilder.path")
                 .handler(webAppHandler)
                 .build());
 
         routes.produce(nonApplicationRootPathBuildItem.routeBuilder()
-                .route(dashbuilderConfig.path + "*")
+                .route(dashbuilderConfig.path() + "*")
                 .handler(webAppHandler)
                 .build());
 
@@ -344,7 +344,7 @@ public class DashbuilderProcessor {
      *         true if samples should be included in the build, false otherwise
      */
     private boolean includeSamples(DashbuilderConfig config) {
-        return isDev() || config.includeSamples;
+        return isDev() || config.includeSamples();
     }
 
     private String replaceProperties(Map<String, String> dashboardProperties, String name, String content) {

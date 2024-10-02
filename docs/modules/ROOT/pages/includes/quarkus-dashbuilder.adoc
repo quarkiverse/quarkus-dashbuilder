@@ -10,7 +10,7 @@ h|[[quarkus-dashbuilder_configuration]]link:#quarkus-dashbuilder_configuration[C
 h|Type
 h|Default
 
-a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.path]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.path[quarkus.dashbuilder.path]`
+a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus-dashbuilder-path]]`link:#quarkus-dashbuilder_quarkus-dashbuilder-path[quarkus.dashbuilder.path]`
 
 
 [.description]
@@ -27,7 +27,7 @@ endif::add-copy-button-to-env-var[]
 |`/dashboards`
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.dashboards]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.dashboards[quarkus.dashbuilder.dashboards]`
+a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus-dashbuilder-dashboards]]`link:#quarkus-dashbuilder_quarkus-dashbuilder-dashboards[quarkus.dashbuilder.dashboards]`
 
 
 [.description]
@@ -44,7 +44,7 @@ endif::add-copy-button-to-env-var[]
 |
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.include-samples]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.include-samples[quarkus.dashbuilder.include-samples]`
+a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus-dashbuilder-include-samples]]`link:#quarkus-dashbuilder_quarkus-dashbuilder-include-samples[quarkus.dashbuilder.include-samples]`
 
 
 [.description]
@@ -61,7 +61,7 @@ endif::add-copy-button-to-env-var[]
 |`false`
 
 
-a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus.dashbuilder.properties-properties]]`link:#quarkus-dashbuilder_quarkus.dashbuilder.properties-properties[quarkus.dashbuilder.properties]`
+a|icon:lock[title=Fixed at build time] [[quarkus-dashbuilder_quarkus-dashbuilder-properties-properties]]`link:#quarkus-dashbuilder_quarkus-dashbuilder-properties-properties[quarkus.dashbuilder.properties]`
 
 
 [.description]
