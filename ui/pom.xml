@@ -56,7 +56,7 @@
             </goals>
             <configuration>
               <developerConnectionUrl>scm:git:${samples.git.url}</developerConnectionUrl>
-              <scmVersion>${version.dashbuilder.npm}</scmVersion>
+              <scmVersion>${version.kie.samples}</scmVersion>
               <scmVersionType>tag</scmVersionType>
               <checkoutDirectory>${project.build.directory}/kie-samples</checkoutDirectory>
             </configuration>
