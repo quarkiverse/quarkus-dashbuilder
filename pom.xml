@@ -18,7 +18,7 @@
   <parent>
     <groupId>io.quarkiverse</groupId>
     <artifactId>quarkiverse-parent</artifactId>
-    <version>18</version>
+    <version>20</version>
   </parent>
   <artifactId>quarkus-dashbuilder-parent</artifactId>
   <groupId>io.quarkiverse.dashbuilder</groupId>
@@ -37,7 +37,7 @@
     <version.dashbuilder.npm>10.0.0</version.dashbuilder.npm>
     <version.kie.samples>0.32.0</version.kie.samples>
 
-    <quarkus.version>3.17.4</quarkus.version>    
+    <quarkus.version>3.23.1</quarkus.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
 
     <version.org.orienteer.jnpm>1.5</version.org.orienteer.jnpm>
