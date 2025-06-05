@@ -33,24 +33,24 @@ public interface DashbuilderConfig {
      * `${quarkus.http.non-application-root-path}`.
      */
     @WithDefault("/dashboards")
-    public String path();
+    String path();
 
     /**
      * Comma separated list of dashboards to be rendered by Dashbuilder.
      * If not used then Dashbuilder scan all `*.dash.(yaml|yml|json)` files
      */
     @WithDefault("")
-    public Optional<List<String>> dashboards();
+    Optional<List<String>> dashboards();
 
     /**
      * If true samples will also be included in the final JAR
      */
     @WithDefault("false")
-    public boolean includeSamples();
+    boolean includeSamples();
 
     /**
      * Dashboards properties
      */
-    public Map<String, Map<String, String>> properties();
+    Map<String, Map<String, String>> properties();
 
 }
