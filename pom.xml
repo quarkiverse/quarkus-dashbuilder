@@ -37,7 +37,7 @@
     <version.dashbuilder.npm>10.0.0</version.dashbuilder.npm>
     <version.kie.samples>0.32.0</version.kie.samples>
 
-    <quarkus.version>3.26.3</quarkus.version>
+    <quarkus.version>3.28.2</quarkus.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
 
     <version.org.orienteer.jnpm>1.6</version.org.orienteer.jnpm>
