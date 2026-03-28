@@ -43,7 +43,7 @@
     <version.org.orienteer.jnpm>1.6</version.org.orienteer.jnpm>
     <rest-assured.version>5.5.6</rest-assured.version>
     <version.maven.scm>2.0.0</version.maven.scm>
-    <version.maven.resources.plugin>3.3.1</version.maven.resources.plugin>
+    <version.maven.resources.plugin>3.4.0</version.maven.resources.plugin>
 
     <samples.git.url>https://github.com/kiegroup/kie-samples.git</samples.git.url>
     <samples.src.dir>samples</samples.src.dir>
